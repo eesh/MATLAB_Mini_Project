@@ -13,6 +13,9 @@ To be submitted at the end of SEM 2
 - Main screen should have a statistics tab that shows total visits per day and purchases.
 - Calculate monthly expenses.
 
+
+
+
 ####EXTRAS:
 
 - Make a printer friendly version of bill.
@@ -21,10 +24,19 @@ To be submitted at the end of SEM 2
 
 ####WORKING:
 
+
+
+
 #####Main screen has the following options:
+
 >	Add/Remove items (MRI scans, pharmacy, bed rents etc) to/from database.
+
 >	Add/Remove patients/customers.
+
 >	View statistics of the hospital sales.
+
 >	Configure database details(IP, user/pass) and its controls ([re]connect).
+
+
 
 #####Add/Remove patients screen:
