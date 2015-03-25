@@ -1,0 +1,114 @@
+function varargout = receipt(varargin)
+% RECEIPT M-file for receipt.fig
+%      RECEIPT, by itself, creates a new RECEIPT or raises the existing
+%      singleton*.
+%
+%      H = RECEIPT returns the handle to a new RECEIPT or the handle to
+%      the existing singleton*.
+%
+%      RECEIPT('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in RECEIPT.M with the given input arguments.
+%
+%      RECEIPT('Property','Value',...) creates a new RECEIPT or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before receipt_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to receipt_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help receipt
+
+% Last Modified by GUIDE v2.5 25-Mar-2015 21:04:55
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @receipt_OpeningFcn, ...
+                   'gui_OutputFcn',  @receipt_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+end
+
+% --- Executes just before receipt is made visible.
+function receipt_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to receipt (see VARARGIN)
+
+% Choose default command line output for receipt
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+    
+    dnt = clock;
+    
+    date = 
+    
+    global menulist;
+    global x1;
+    x1=10;
+    global x2;
+    x2=100;
+    global x3;
+    x3=160;
+    global x4;
+    x4=220;
+    global y;
+    y=302;
+    w1 = 71;
+    
+    rsize = size(menulist);
+    rowsize = rsize(1,1);
+    for i = 1:1:rowsize
+        uicontrol('Style','text','String',menulist(i,1),'Position',[x1 y w1 15],'HorizontalAlignment','left');
+        uicontrol('Style','text','String',menulist(i,2),'Position',[x2 y 52 15],'HorizontalAlignment','left');
+        uicontrol('Style','text','String',menulist(i,3),'Position',[x3 y 52 15],'HorizontalAlignment','left');
+        uicontrol('Style','text','String',menulist(i,4),'Position',[x4 y 52 15],'HorizontalAlignment','left');
+        y=y-20;
+    end
+    
+    uicontrol('Style','text','String','Tax:             14.5%','Position',[x3 y 100 15],'HorizontalAlignment','left');
+    y=y-20;
+    uicontrol('Style','text','String','------------------------------------------------------------------','Position',[10 y 260 15]);
+    y=y-20;
+    global TOTAL_BILL;
+    tax = TOTAL_BILL * 0.145;
+    TOTAL_BILL = TOTAL_BILL + tax;
+    uicontrol('Style','text','String','TOTAL: ','Position',[x2 y-5 52 20]);
+    uicontrol('Style','text','String',TOTAL_BILL,'Position',[x4-5 y-5 52 20]);
+    y=y-25;
+    uicontrol('Style','text','String','------------------------------------------------------------------','Position',[10 y 260 15]);
+    
+    
+% UIWAIT makes receipt wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+end
+
+% --- Outputs from this function are returned to the command line.
+function varargout = receipt_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+end

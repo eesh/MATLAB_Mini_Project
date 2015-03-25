@@ -1,0 +1,5 @@
+function productcost = addProduct(productName) 
+    fdir = fullfile(pwd,'menu',char(productName))
+    if(exist(fdir,'file') ~= 
+    %productcost = dlmread(fdir);
+end
